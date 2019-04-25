@@ -7,15 +7,27 @@
     "extends": "eslint:recommended",
     "globals": {
         "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
+        "SharedArrayBuffer": "readonly",
+        
+        "my": true,
+        "App": true,
+        "Component": true,
+        "Page": true
     },
+    "parser": "typescript-eslint-parser",
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
+    "plugins": [
+        "typescript"
+    ],
     "rules": {
         "no-console": "off",
         "strict": ["error", "global"],
-        "curly": "warn"
+        "curly": "warn",
+        "typescript/class-name-casing": "error",
+        "typescript/type-annotation-spacing": "error",
+        "no-unused-vars": "off"
     }
 }
