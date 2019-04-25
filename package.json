@@ -1,0 +1,58 @@
+{
+  "name": "jx-pattern",
+  "version": "0.0.1",
+  "description": "Programimg patterns of Javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint-staged": "lint-staged",
+    "build": "NODE_ENV=production node scripts/compiler.js",
+    "pub": "npm run build && node scripts/pub.js",
+    "dev": "node scripts/compiler.js"
+  },
+  "pre-commit": [
+    "lint-staged"
+  ],
+  "lint-staged": {
+    "*.ts": [
+      "eslint --ext .ts",
+      "git add"
+    ],
+    "*.{js,css,html}": [
+      "eslint",
+      "prettier --trailing-comma es5 --single-quote --write",
+      "git add"
+    ],
+    "*.less": [
+      "stylelint --syntax less"
+    ],
+    "*.md": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "files": [
+    "lib",
+    "index.js"
+  ],
+  "keywords": [
+    "antui",
+    "mini-program"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BinaryArtists/jx-pattern.git"
+  },
+  "author": "Fallenink",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BinaryArtists/jx-pattern/issues"
+  },
+  "homepage": "https://github.com/BinaryArtists/jx-pattern#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "lint-staged": "^8.1.5",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.17.0"
+  }
+}
