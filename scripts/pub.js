@@ -2,7 +2,7 @@ const { execSync, spawn } = require('child_process');
 
 const packageJson = require(`${process.cwd()}/package.json`);
 const { version } = packageJson;
-const runner = spawn('npm', ['publish']);
+const runner = spawn('npm', ['publish --access public']);
 
 runner.on('close', () => {
   execSync(`git tag ${version}`);
