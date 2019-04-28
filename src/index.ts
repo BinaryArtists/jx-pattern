@@ -1,4 +1,4 @@
-const testFunction = function(a, b, c, d, f) {};
+var testFunction = function(a, b, c, d, f) {};
 
 testFunction(1, 3, 4, 5, 6);
 
@@ -14,6 +14,6 @@ class MockImpl implements Mockable {
   }
 }
 
-export default {
+module.exports = {
   test: 'test'
 };

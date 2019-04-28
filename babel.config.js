@@ -6,8 +6,23 @@
 //     .babelrc
 //     index.js
 
+// https://github.com/babel/babel-preset-env/blob/master/data/plugin-features.js
+
 module.exports = {
-  presets: ['@babel/env', '@babel/typescript'],
+  presets: [
+    [
+      '@babel/preset-env', // https://www.cnblogs.com/chyingp/p/understanding-babel-preset-env.html
+      {
+        targets: {
+          // node: "8.9.3",
+          // browsers: "ie 11" // https://github.com/browserslist/browserslist
+        },
+        loose: true,
+        modules: false,
+      },
+    ],
+    '@babel/typescript',
+  ],
   plugins: [
     // "@babel/plugin-syntax-dynamic-import",
     // "@babel/transform-runtime",
