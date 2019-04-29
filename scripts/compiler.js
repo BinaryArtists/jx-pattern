@@ -6,7 +6,7 @@ const path = require('path');
 const gulp = require('gulp');
 const eslint = require('gulp-eslint');
 const babel = require('gulp-babel');
-const uglify = require('gulp-uglify');
+const uglify = require('gulp-uglify-es').default;
 const minify = require('gulp-minify');
 const gulpif = require('gulp-if');
 
