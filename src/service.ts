@@ -3,9 +3,7 @@ export class Service {
     return '';
   }
 
-  depends(): [Service] {
-    return [new Service()];
-  }
-
   config(): void {}
+
+  static install(Facade, options): void {}
 }
