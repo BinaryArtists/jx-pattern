@@ -1,9 +1,15 @@
-export class Service {
-  named(): string {
-    return '';
+export default class Service {
+  constructor() {}
+
+  name(): string {
+    return 'default';
+  }
+
+  available(): boolean {
+    return false;
   }
 
   config(): void {}
 
-  static install(Facade, options): void {}
+  static install(Obj, options): void {}
 }
