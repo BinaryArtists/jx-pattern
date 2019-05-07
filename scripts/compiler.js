@@ -28,12 +28,15 @@ function scriptsLint() {
 function scripts() {
   let opts = require(babelConfigFilePath);
 
-  return gulp
-    .src([`${src}/**/*.ts`])
-    .pipe(babel(opts))
-    .pipe(uglify())
-    .pipe(minify())
-    .pipe(gulp.dest(dist));
+  return (
+    gulp
+      .src([`${src}/**/*.ts`])
+      .pipe(babel(opts))
+      // 需要源码提供，所以不做混淆、压缩
+      // .pipe(uglify())
+      // .pipe(minify())
+      .pipe(gulp.dest(dist))
+  );
 }
 
 const build = gulp.series(scriptsLint, scripts);

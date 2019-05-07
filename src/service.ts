@@ -1,5 +1,9 @@
-export default class Service {
-  constructor() {}
+export class Service {
+  opt: any;
+
+  constructor(opts) {
+    this.opt = opts;
+  }
 
   name(): string {
     return 'default';
@@ -9,7 +13,14 @@ export default class Service {
     return false;
   }
 
-  config(): void {}
+  config(params: object): void {
+    for (let prop in params) {
+      this[prop] = params[prop];
+    }
+  }
 
-  static install(Obj, options): void {}
+  static install(obj: any, options: any): void {
+    // Not obj.prototype.$service
+    obj.$service = new Service(options);
+  }
 }
