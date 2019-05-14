@@ -1,34 +1,70 @@
+interface ServiceOptions {
+  enableLogging: Boolean;
+  cfgfile: any;
+}
+
 export class Service {
+  running: Boolean;
   opt: any;
 
-  constructor(opts) {
+  constructor(opts: ServiceOptions) {
     this.opt = opts;
   }
 
-  name(): string {
+  name(): String {
     return 'default';
   }
 
-  available(): boolean {
+  available(): Boolean {
     return false;
   }
 
-  config(params: object): void {
+  config(params: Object): void {
     for (let prop in params) {
       this[prop] = params[prop];
     }
   }
 
-  /**
-   *
-   * @param param.type 'pv' 页面浏览, 'ck' 点击事件, 'expo' 曝光, 'ev' 通用事件
-   * @param param.url 页面route
-   * @param param.uid 事件handler/eventname，曝光selector
-   */
-  log({ type, url, uid, extra }) {}
-
   static install(obj: any, options: any): void {
     // Not obj.prototype.$service
     obj.$service = new Service(options);
+  }
+
+  /**
+   * @desc 服务依赖
+   */
+  depends(): Array<String> {
+    return [];
+  }
+
+  /**
+   * @desc 返回promise，表示初始化完成
+   */
+  ready() {}
+
+  /**
+   * @desc 返回signal，表示数据更新
+   */
+  changed() {}
+
+  /**
+   * @desc 服务是否在运行
+   */
+  isRunning() {
+    return this.running;
+  }
+
+  /**
+   * 服务热启动
+   */
+  powerOn() {
+    this.running = true;
+  }
+
+  /**
+   * 服务热关闭
+   */
+  powerOff() {
+    this.running = false;
   }
 }

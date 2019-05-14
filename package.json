@@ -1,6 +1,6 @@
 {
   "name": "jx-pattern",
-  "version": "0.0.20",
+  "version": "0.1.0",
   "description": "Programimg patterns of Javascript",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
