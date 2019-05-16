@@ -33,4 +33,9 @@ export class Tracer {
     data.uid = 'home.banner.1234';
     data.extra = {};
   }
+
+  static install(obj: any, options: any): void {
+    // Not obj.prototype.$service
+    obj.$sdk = new Tracer(options);
+  }
 }
