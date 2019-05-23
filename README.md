@@ -21,6 +21,22 @@ dts-gen -m yargs         // 执行命令生成文件
 dtsmake -s ./path/to/sourcefile.js
 ```
 
+## 功能点
+
+### Asyncable 可异步对象
+
+### Cachable 可缓存对象
+
+### Logger 日志基类
+
+### ServiceManager 服务管理器
+
+### Service 服务基类
+
+### Singleton 单例范例
+
+### Tracer 埋点基类
+
 ## 其他
 
 http://www.typescriptlang.org/docs/handbook/declaration-files/by-example.html
